@@ -1,0 +1,64 @@
+{
+    "name": "henryejemuta/laravel-vtung",
+    "description": "A laravel package to seamlessly integrate VTU.ng API into your laravel application. The VTU.ng API is an HTTPs GET API that allows you to integrate all virtual top-up and bills payment services available on our platform with your application (websites, desktop apps & mobile apps). You can also start your own VTU business by integrating our VTU API and resell our services in Nigeria.",
+    "keywords": [
+        "henryejemuta",
+        "laravel-vtung",
+        "payment",
+        "bill payment",
+        "Utility Bills",
+        "Cable Bills",
+        "Airtime",
+        "Data Bundle",
+        "Nigeria"
+    ],
+    "homepage": "https://github.com/henryejemuta/laravel-vtung",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Henry Ejemuta",
+            "email": "henry.ejemuta@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/support": "^7.0|^8.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "1.*",
+        "orchestra/testbench": "^5.0|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HenryEjemuta\\LaravelVtuDotNG\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HenryEjemuta\\LaravelVtuDotNG\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HenryEjemuta\\LaravelVtuDotNG\\VtuDotNGServiceProvider"
+            ],
+            "aliases": {
+                "VtuDotNG": "HenryEjemuta\\LaravelVtuDotNG\\Facades\\VtuDotNG"
+            }
+        }
+    }
+}
