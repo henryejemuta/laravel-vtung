@@ -1,18 +1,18 @@
 <?php
 
-namespace Henryejemuta\LaravelVtung\Tests;
+namespace HenryEjemuta\LaravelVtuDotNG\Tests;
 
+use HenryEjemuta\LaravelVtuDotNG\VtuDotNGServiceProvider;
 use Orchestra\Testbench\TestCase;
-use Henryejemuta\LaravelVtung\LaravelVtungServiceProvider;
 
 class ExampleTest extends TestCase
 {
 
     protected function getPackageProviders($app)
     {
-        return [LaravelVtungServiceProvider::class];
+        return [VtuDotNGServiceProvider::class];
     }
-    
+
     /** @test */
     public function true_is_true()
     {

@@ -5,6 +5,7 @@ namespace HenryEjemuta\LaravelVtuDotNG;
 use HenryEjemuta\LaravelVtuDotNG\Classes\VtuDotNGResponse;
 use HenryEjemuta\LaravelVtuDotNG\Exceptions\VtuDotNGErrorException;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class VtuDotNG
 {
@@ -55,11 +56,11 @@ class VtuDotNG
     private function withAuth(string $endpoint, array $params = []): VtuDotNGResponse
     {
         $params['username'] = $this->config['username'];
-        $params['password'] = $this->config['password'];
+        $params['password'] = urldecode($this->config['password']);
         $response = Http::get("{$this->baseUrl}$endpoint", $params);
 
         $responseObject = json_decode($response->body());
-        if ($response->successful() && isset($responseObject->code) && isset($responseObject->message))
+        if (isset($responseObject->code) && isset($responseObject->message))
             return new VtuDotNGResponse($responseObject->code, $responseObject->message, isset($responseObject->data) ? $responseObject->data : null);
         return new VtuDotNGResponse();
     }

@@ -34,30 +34,6 @@ class VtuDotNGResponse
      */
     private $body;
 
-    const STATUS_CODE = [
-        "success" => 200,
-        "201" => '201 Created',
-        "203" => '203 Non-Authoritative Information',
-        "204" => '204 No Content',
-        "301" => '301 Moved Permanently',
-        "307" => '307 Temporary Redirect',
-        "308" => '308 Permanent Redirect',
-        "400" => '400 Bad Request',
-        "401" => '401 Unauthorized',
-        "402" => '402 Payment Required',
-        "403" => '403 Forbidden',
-        "404" => '404 Not Found',
-        "408" => '408 Request Timeout',
-        "413" => '413 Payload Too Large',
-        "414" => '414 URI Too Long',
-        "422" => '422 Unprocessable Entity',
-        "500" => '500 Internal Server Error',
-        "502" => '502 Bad Gateway',
-        "503" => '503 Service Unavailable',
-        "504" => '504 Gateway Timeout',
-        "505" => '505 HTTP Version Not Supported',
-    ];
-
 
     /**
      * VtuDotNGResponse constructor.
@@ -66,7 +42,7 @@ class VtuDotNGResponse
      * @param object|array|null $responseBody
      * @throws VtuDotNGErrorException
      */
-    public function __construct(string $code = 'failure', $message = 'Unable to reach VTU.ng Server', $responseBody = null)
+    public function __construct(string $code = 'failed', $message = 'Unable to reach VTU.ng Server', $responseBody = null)
     {
         $this->body = $responseBody;
         $this->code = strtolower("$code");
@@ -74,7 +50,7 @@ class VtuDotNGResponse
         $this->hasError = ($this->code != "success");
 
         if ($this->hasError)
-            throw new VtuDotNGErrorException($message, ($this->code == "success") ? 200 : 422);
+            throw new VtuDotNGErrorException($message, ($this->code == "success") ? 200 : ($this->code == "failed") ? 503 : 422);
 
     }
 
