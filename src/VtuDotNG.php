@@ -5,7 +5,6 @@ namespace HenryEjemuta\LaravelVtuDotNG;
 use HenryEjemuta\LaravelVtuDotNG\Classes\VtuDotNGResponse;
 use HenryEjemuta\LaravelVtuDotNG\Exceptions\VtuDotNGErrorException;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 
 class VtuDotNG
 {
