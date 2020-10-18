@@ -44,13 +44,18 @@ class VtuDotNGResponse
      */
     public function __construct(string $code = 'failed', $message = 'Unable to reach VTU.ng Server', $responseBody = null)
     {
+        if($message == 'Your account is not activated for API access. Kindly upgrade to a Reseller Account to access our API'){
+            $code = "upgrade";
+        }
         $this->body = $responseBody;
         $this->code = strtolower("$code");
         $this->message = $message;
-        $this->hasError = ($this->code != "success");
+        $this->hasError = !in_array($this->code, ["success", "failure"]);
 
-        if ($this->hasError)
-            throw new VtuDotNGErrorException($message, ($this->code == "success") ? 200 : ($this->code == "failed") ? 503 : 422);
+        if ($this->hasError) {
+            $statusCode = ($this->code == "failed") ? 503 : ($this->code == "upgrade") ? 401 : 422;
+            throw new VtuDotNGErrorException($message, $statusCode);
+        }
 
     }
 

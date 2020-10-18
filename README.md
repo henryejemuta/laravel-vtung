@@ -33,8 +33,6 @@ php artisan vtung:init
 
 ## Usage
 
-## Usage
-
 The Laravel VTU.ng Package is quite easy to use via the VtuDontNG facade
 ``` php
 use HenryEjemuta\LaravelVtuDotNG\Facades\VtuDotNG;
@@ -50,6 +48,8 @@ try{
 ...
 
 ```
+**Note: To handle upgrade warning differently it is thrown as exception with the message from VTU.ng and an error code of 401**
+
 
 Find an overview of all method with comment on what they do and expected arguments
 ``` php
