@@ -88,7 +88,7 @@ class VtuDotNG
         return $this->withAuth('airtime', [
             'network_id' => $network,
             'amount' => $amount,
-            'phone_number' => $phoneNumber
+            'phone' => $phoneNumber
         ]);
     }
 
