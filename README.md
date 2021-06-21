@@ -1,6 +1,5 @@
 # Laravel VTU.ng
 
-[![Build Status](https://travis-ci.org/henryejemuta/laravel-vtung.svg?branch=master)](https://travis-ci.org/henryejemuta/laravel-vtung)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/henryejemuta/laravel-vtung.svg?style=flat-square)](https://packagist.org/packages/henryejemuta/laravel-vtung)
 [![Latest Stable Version](https://poser.pugx.org/henryejemuta/laravel-vtung/v/stable)](https://packagist.org/packages/henryejemuta/laravel-vtung)
 [![Total Downloads](https://poser.pugx.org/henryejemuta/laravel-vtung/downloads)](https://packagist.org/packages/henryejemuta/laravel-vtung)

@@ -53,7 +53,7 @@ class VtuDotNGResponse
         $this->hasError = !in_array($this->code, ["success", "failure"]);
 
         if ($this->hasError) {
-            $statusCode = ($this->code == "failed") ? 503 : ($this->code == "upgrade") ? 401 : 422;
+            $statusCode = (($this->code == "failed") ? 503 : (($this->code == "upgrade") ? 401 : 422));
             throw new VtuDotNGErrorException($message, $statusCode);
         }
 
