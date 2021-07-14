@@ -129,39 +129,19 @@ Find an overview of all method with comment on what they do and expected argumen
     /**
      * We advise that you always verify the customer’s details before submitting requests to purchase the service (cable TV or electricity). The VTU.ng customer verification endpoint allows you to get the customer’s full name.
      *
-     * Please note the service_id below:
-     * Ikaja Electricity = <strong>ikeja-electric</strong>
-     * Eko Electricity = <strong>eko-electric</strong>
-     * Kano Electricity = <strong>kano-electric</strong>
-     * Kaduna Electricity = <strong>Kaduna-electric</strong>
-     * Port Harcourt Electricity = <strong>phed</strong>
-     * Jos Electricity = <strong>jos-electric</strong>
-     * Abuja Electricity = <strong>abuja-electric</strong>
-     * Ibadan Electricity = <strong>ibadan-electric</strong>
-     *
-     *
-     * @param string $disco The service_id is unique for all cable TV and electricity services.
+     * @param DiscoEnum $disco The service_id is unique for all cable TV and electricity services.
      * @param string $meterNumber Meter Number to verify
      * @param string $meterType Meter type i.e. <strong>prepaid</strong> or <strong>postpaid</strong>
      * @return VtuDotNGResponse
      * @throws VtuDotNGErrorException
      */
-    public function verifyMeterNumber(string $disco, string $meterNumber, string $meterType): VtuDotNGResponse
+    public function verifyMeterNumber(DiscoEnum $disco, string $meterNumber, string $meterType): VtuDotNGResponse
 
     /**
      * Purchase Electricity
      * You can purchase electricity through our API and get instant token for prepaid meters.
      *
-     * @param string $disco Unique code of the Electricity distribution company the meter number is for
-     * The discos unique service_id is used to make each electricity company unique. They are as follows:
-     * Ikaja Electricity = <strong>ikeja-electric</strong>
-     * Eko Electricity = <strong>eko-electric</strong>
-     * Kano Electricity = <strong>kano-electric</strong>
-     * Kaduna Electricity = <strong>Kaduna-electric</strong>
-     * Port Harcourt Electricity = <strong>phed</strong>
-     * Jos Electricity = <strong>jos-electric</strong>
-     * Abuja Electricity = <strong>abuja-electric</strong>
-     * Ibadan Electricity = <strong>ibadan-electric</strong>
+     * @param DiscoEnum $disco Unique code of the Electricity distribution company the meter number is for
      *
      * @param string $meterNumber The meter number you want to purchase electricity for
      * @param string $meterType The meter type of electricity company you want to purchase. It is either prepaid or postpaid
@@ -170,7 +150,7 @@ Find an overview of all method with comment on what they do and expected argumen
      * @return VtuDotNGResponse
      * @throws VtuDotNGErrorException
      */
-    public function purchaseElectricity(string $disco, string $meterNumber, string $meterType, $amount, string $customerPhoneNumber): VtuDotNGResponse
+    public function purchaseElectricity(DiscoEnum $disco, string $meterNumber, string $meterType, $amount, string $customerPhoneNumber): VtuDotNGResponse
 
 ```
 
