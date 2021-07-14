@@ -3,6 +3,7 @@
 namespace HenryEjemuta\LaravelVtuDotNG;
 
 use HenryEjemuta\LaravelVtuDotNG\Classes\VtuDotNGResponse;
+use HenryEjemuta\LaravelVtuDotNG\Enums\DiscoEnum;
 use HenryEjemuta\LaravelVtuDotNG\Exceptions\VtuDotNGErrorException;
 use Illuminate\Support\Facades\Http;
 
@@ -199,31 +200,23 @@ class VtuDotNG
      * Ibadan Electricity = <strong>ibadan-electric</strong>
      *
      *
-     * @param string $disco The service_id is unique for all cable TV and electricity services.
+     * @param DiscoEnum $disco The service_id is unique for all cable TV and electricity services.
      * @param string $meterNumber Meter Number to verify
      * @param string $meterType Meter type i.e. <strong>prepaid</strong> or <strong>postpaid</strong>
      * @return VtuDotNGResponse
      * @throws VtuDotNGErrorException
      */
-    public function verifyMeterNumber(string $disco, string $meterNumber, string $meterType): VtuDotNGResponse
+    public function verifyMeterNumber(DiscoEnum $disco, string $meterNumber, string $meterType): VtuDotNGResponse
     {
-        return $this->verifyCustomer($meterNumber, $disco, $meterType);
+        return $this->verifyCustomer($meterNumber, $disco->getCode(), $meterType);
     }
 
     /**
      * Purchase Electricity
      * You can purchase electricity through our API and get instant token for prepaid meters.
      *
-     * @param string $disco Unique code of the Electricity distribution company the meter number is for
-     * The discos unique service_id is used to make each electricity company unique. They are as follows:
-     * Ikaja Electricity = <strong>ikeja-electric</strong>
-     * Eko Electricity = <strong>eko-electric</strong>
-     * Kano Electricity = <strong>kano-electric</strong>
-     * Kaduna Electricity = <strong>Kaduna-electric</strong>
-     * Port Harcourt Electricity = <strong>phed</strong>
-     * Jos Electricity = <strong>jos-electric</strong>
-     * Abuja Electricity = <strong>abuja-electric</strong>
-     * Ibadan Electricity = <strong>ibadan-electric</strong>
+     * @param DiscoEnum $disco DiscoEnum::Unique code of the Electricity distribution company the meter number is for
+
      *
      * @param string $meterNumber The meter number you want to purchase electricity for
      * @param string $meterType The meter type of electricity company you want to purchase. It is either prepaid or postpaid
@@ -232,10 +225,10 @@ class VtuDotNG
      * @return VtuDotNGResponse
      * @throws VtuDotNGErrorException
      */
-    public function purchaseElectricity(string $disco, string $meterNumber, string $meterType, $amount, string $customerPhoneNumber): VtuDotNGResponse
+    public function purchaseElectricity(DiscoEnum $disco, string $meterNumber, string $meterType, $amount, string $customerPhoneNumber): VtuDotNGResponse
     {
         return $this->withAuth('electricity', [
-            "service_id" => $disco,
+            "service_id" => $disco->getCode(),
             "meter_number" => $meterNumber,
             "variation_id" => $meterType,
             "amount" => $amount,

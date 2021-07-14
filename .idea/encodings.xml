@@ -6,6 +6,11 @@
     <file url="file://$PROJECT_DIR$/composer.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Classes/VtuDotNGResponse.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Console/InstallLaravelVtuDotNG.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Enums/CableTvEnum.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Enums/ClubKonnectStatusCodeEnum.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Enums/DiscoEnum.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Enums/MeterTypeEnum.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Enums/NetworkEnum.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Exceptions/VtuDotNGErrorException.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Facades/VtuDotNG.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/VtuDotNG.php" charset="UTF-8" />
