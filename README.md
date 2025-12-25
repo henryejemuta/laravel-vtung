@@ -16,6 +16,11 @@ Create a VTU.ng Account [Sign Up](http://bit.ly/3nTkLh4).
 
 Look up VTU.ng API Documentation [API Documentation](https://vtu.ng/api/).
 
+
+## Non-Laravel Usage
+
+If you are using this package in a non-laravel project, or you need a framework agnostic usage of this package, using the vanilla php version [php-vtung-vtu](https://github.com/henryejemuta/php-vtung-vtu) is suggested.
+
 ## Installation
 
 You can install the package via composer:
